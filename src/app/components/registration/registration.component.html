@@ -1,0 +1,160 @@
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        Create Profile/Signup
+    </div>
+</div>
+<mat-horizontal-stepper linear>
+    <mat-step [stepControl]="registrationForm">
+        <ng-template matStepLabel>User Details</ng-template>
+        <form class="form-horizontal" [formGroup]="registrationForm">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2" for="name">Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" formControlName="name"
+                                placeholder="Enter name" name="name" (blur)="logValidationErrors()"
+                                [ngClass]="{'is-invalid': formErrors.name}">
+                            <span class="invalid-feedback" *ngIf="formErrors.name">
+                                {{formErrors.name}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2" for="mobileNumber">Mobile Number:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="mobileNumber" formControlName="mobileNumber"
+                                placeholder="Enter mobile number" name="mobileNumber" (blur)="logValidationErrors()"
+                                [ngClass]="{'is-invalid': formErrors.mobileNumber}">
+                            <span class="invalid-feedback" *ngIf="formErrors.mobileNumber">
+                                {{formErrors.mobileNumber}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group  row">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" formControlName="email"
+                                placeholder="Enter email" name="email" (blur)="logValidationErrors()"
+                                [ngClass]="{'is-invalid': formErrors.email}">
+                            <span class="invalid-feedback" *ngIf="formErrors.email">
+                                {{formErrors.email}}
+                            </span>
+                        </div>
+                    </div>
+                    <!-- <div formGroupName="passwordGroup"> -->
+                    <div class="form-group  row">
+                        <label class="control-label col-sm-2" for="password">Password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="password" formControlName="password"
+                                placeholder="Password" name="password" (blur)="logValidationErrors()"
+                                [ngClass]="{'is-invalid': formErrors.password}">
+                            <span class="invalid-feedback" *ngIf="formErrors.password">
+                                {{formErrors.password}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group  row">
+                        <label class="control-label col-sm-2" for="password">Confirm Password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="confirmPassword"
+                                formControlName="confirmPassword" placeholder="Confirm password" name="confirmPassword"
+                                (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.confirmPassword}">
+                            <span class="invalid-feedback" *ngIf="formErrors.confirmPassword">
+                                {{formErrors.confirmPassword}}
+                            </span>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <button mat-button matStepperNext class="btn btn-primary" (click)="saveUserDetails()"
+                                style="margin-right: 20px;">Next</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step label="Company Details" [stepControl]="formCompanyDtails">
+        <form class="form-horizontal" [formGroup]="formCompanyDtails">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="companyName">Company Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="companyName" formControlName="companyName"
+                        placeholder="Enter company name" name="companyName" (blur)="logValidationErrors(formCompanyDtails)"
+                        [ngClass]="{'is-invalid': formErrors.companyName}">
+                    <span class="invalid-feedback" *ngIf="formErrors.companyName">
+                        {{formErrors.companyName}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="website">Website:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="website" formControlName="website"
+                        placeholder="Enter your website name" name="website">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="address">Address:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" formControlName="address"
+                        placeholder="Enter your address" name="address" (blur)="logValidationErrors(formCompanyDtails)"
+                        [ngClass]="{'is-invalid': formErrors.address}">
+                    <span class="invalid-feedback" *ngIf="formErrors.address">
+                        {{formErrors.address}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="postalCode">Postal Code:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="postalCode" formControlName="postalCode"
+                        placeholder="Enter your postal code" name="postalCode" (blur)="logValidationErrors()"
+                        [ngClass]="{'is-invalid': formErrors.postalCode}">
+                    <span class="invalid-feedback" *ngIf="formErrors.postalCode">
+                        {{formErrors.postalCode}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button mat-button matStepperPrevious class="btn btn-primary" (click)="saveCompanyDetails()"
+                        style="margin-right: 20px;">Previous</button>
+                    <button mat-button matStepperNext class="btn btn-primary" (click)="saveCompanyDetails()"
+                        style="margin-right: 20px;">Next</button>
+                </div>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step label="Company Type">
+        <div class="form-group row text-center">
+            <div class="col-sm-12">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="appoint" name="distributorshipType" value="appoint" class="custom-control-input"
+                        (change)='ondistributorshipTypeChanged($event)'>
+                    <label class="custom-control-label" for="appoint">Want to appoint distributor</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="become" name="distributorshipType" value="become" class="custom-control-input"
+                        (change)='ondistributorshipTypeChanged($event)'>
+                    <label class="custom-control-label" for="become">Want to become distributor</label>
+                </div>
+            </div>
+        </div>
+
+        <app-appoint-distributor *ngIf="distributorshipType == 'appoint'"></app-appoint-distributor>
+        <app-become-distributor *ngIf="distributorshipType == 'become'"></app-become-distributor>
+    </mat-step>
+
+</mat-horizontal-stepper>
+
+
+<!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait...</p>
+</ngx-spinner> -->

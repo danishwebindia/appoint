@@ -1,0 +1,17 @@
+<div class="pull-left scroll">
+  <app-navigationbar></app-navigationbar>
+</div>
+<div class="main">
+  <div class="container">
+    <div class="pull-left w-100">     
+      <router-outlet></router-outlet>
+      <br />
+    </div>
+  </div>
+  <div class="pull-left w-100 footer">
+    <app-footer></app-footer>
+  </div>
+</div>
+<div class="bottom-fixed blink_me">
+  <a class="nav-link" (click)="openDialog('postrequirements')">Post Your Requirement</a>
+</div>

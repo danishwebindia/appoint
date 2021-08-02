@@ -1,0 +1,13 @@
+.searchArea{
+    width: 100%;
+    /* height: 150px; */
+    margin:auto;
+}
+.ask-expert{
+    border: solid 2px green;
+    border-radius: 20px;
+    padding: 10px;
+}
+.bottom-space{
+    height: 10px;
+}

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="pull-left" style="width:100% ;padding: 10px 0 !important;">
+        <div class="center">
+            <div class="pull-left" style="width:20%">
+                <a routerLink="home">
+                    <img src="../../../assets/images/logo.jpeg" width="125%" height="60px" />
+                </a>
+            </div>
+            <div class="pull-left" style="width:80%" *ngIf="displaySearch">
+                <div class="pull-left" style="width:78%; margin: 0 10px;">
+                    <div class="pull-left w-100">
+                        <!-- <div class="pull-left form-group" style="width:25%; margin-right: 10px;">
+                            <select class="form-control" id="sel1" style="height: 45px;" (change)="setCatagoryId($event.target.value)">
+                                <option value='0'>Select Category</option>
+                                <option *ngFor="let catagory of catagories" [value]="catagory.id">{{catagory.name}}
+                                </option>
+                            </select>
+                        </div> -->
+                        <div class="pull-left input-group" style="margin-left: 75px;width: 90%;">
+                            <input type="text" class="form-control" placeholder="Search products"
+                                (keydown.enter)="onKeyDownEvent($event)" style="height: 45px;" [(ngModel)]="keyword" >
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="button" (click)="searchCategory()"
+                                    style="background-color: #208e39;">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-right pt-1">
+                    <button type="button" class="btn btn-success" style="background-color: #fc6600 !important;"
+                        (click)="openDialog('postrequirements')">
+                        Post your requirement
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

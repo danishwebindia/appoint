@@ -1,0 +1,33 @@
+.main {
+    width: 100%;
+    min-height: 100px;
+    margin: 50px 0 0 0;
+    background-color: #fff !important;
+    z-index: 100;
+    box-shadow: 0 0px 5px 0px #000;    
+    border-radius: 8px;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.center {
+    margin: auto;
+    width: 80%;    
+    padding: 30px 10px 10px 10px;
+}

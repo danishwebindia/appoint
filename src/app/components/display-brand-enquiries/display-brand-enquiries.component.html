@@ -1,0 +1,33 @@
+<table id="customers">
+    <thead>
+        <tr>            
+            <th>Enquirer ContactNumber</th>
+            <th>Enquirer Email</th>
+            <th>Location</th>
+            <th>Enquirer Requirements</th>
+            <th>Reply Comments</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let enquiry of enquiries">
+            <td>{{ enquiry.inquirerContactNumber }}</td>
+            <td>{{ enquiry.email }}</td>
+            <td>{{ enquiry.location }}</td>
+            <td>{{ enquiry.requirements }}</td>
+            <td>{{ enquiry.replyComments }}</td>
+            <td *ngIf="!enquiry.isHandled"><button type="button" class="btn btn-primary" (click)="replyToEnquiry(enquiry.email, enquiry.enquiryId)">Reply</button></td>
+            <td *ngIf="enquiry.isHandled">Replied</td>
+        </tr>
+    </tbody>
+    <tfoot *ngIf="!enquiries">
+        <tr>
+            <td colspan="6" align="center">
+                No enquiries available.
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait...</p>
+</ngx-spinner> -->

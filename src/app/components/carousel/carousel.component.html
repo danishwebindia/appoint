@@ -1,0 +1,52 @@
+<div class="ExplorePremiumBrands">
+    Latest Distributors Leads
+</div>
+<div class="container cta-100 ">
+    <div class="container">
+        <div class="row">
+            <div id="LatestDistributorsLeads" class='col-12'>
+                <ngb-carousel>
+                    <ng-template *ngFor="let rowItem of distributorLeads" ngbSlide>
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let colItems of rowItem">
+                                <div class="item-box-blog">                                    
+                                    <div class="item-box-blog-body" style="font-size: 10px;">
+                                        <!--Heading-->
+                                        <div class="item-box-blog-heading">
+                                            <a href="#" tabindex="0">
+                                                <b>Client wants to take distributorship</b>
+                                            </a>
+                                        </div>
+                                        <!--Data-->
+                                        <div class="item-box-blog-data" style="padding: px 15px;">
+                                            <p>
+                                                <i class="fa fa-user-o"></i> {{ colItems.brandOwner == null ? 'Not provided' : colItems.brandOwner  }}
+                                                <!-- , <i class="fa fa-comments-o"></i>
+                                                Comments(3) -->
+                                            </p>
+                                        </div>
+                                        <!--Text-->
+                                        <div class="item-box-blog-text" style="height: 250px !important; text-align: left;">
+                                            <!-- <label>Client name : {{ colItems.brandOwner == null ? 'Not provided' : colItems.brandOwner  }}</label> -->
+                                            <label>City (State) : {{ colItems.brandPrimaryAddress == null ? 'Not provided' : colItems.brandPrimaryAddress  }}</label>                                            
+                                            <label>Client wants to take distributorship :  {{colItems.productsKeywords}}</label>
+                                            <!-- <label>Contact No : 9579306880 </label> -->
+                                            <label>Experienced : {{colItems.experianceType}}</label>
+                                            <div style="clear: both;"></div>
+                                            <label>Investment : {{colItems.investmentRequired}} </label>
+                                            <!-- <label>Company name : AP </label> -->
+                                            <!-- <label>E- mail id : aphapale2@gmail.com</label> -->
+                                        </div>
+                                        <div class="mt"> <a tabindex="0"
+                                                class="btn bg-blue-ui white read" (click)="openDistibutorsLeadData(colItems.id)">View more</a> </div>
+                                        <!--Read More Button-->
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </ng-template>                    
+                </ngb-carousel>
+            </div>
+        </div>
+    </div>
+</div>

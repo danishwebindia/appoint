@@ -1,0 +1,25 @@
+<div class="ContainerPremiumBrands mb-4">
+    <div class="ExplorePremiumBrands">
+        Categories
+    </div>    
+    <ng-container *ngFor="let catagoryCollection of catagories;let isFirst=first; let isLast=last">
+        <div class="row" *ngIf="isFirst || isLast || displayAll">
+            <div class="col-12">
+                <div class="col-2 imageFrame" *ngFor="let item of catagoryCollection">
+                    <a [routerLink]="['../searchresultcategory', item.id ]">
+                        <img width="140px" class="rounded-circle" height="140px" [src]="item.image" />
+                        <label class="alingCenter">
+                            {{item.name}}
+                        </label>
+                    </a>
+                </div>
+                <div class="col-2 imageFrame" *ngIf="isLast" (click)="toggleDisplayAll()">
+                    <img width="150px" class="rounded-circle" src="../../../assets/images/all-cat.jpeg" />
+                    <label class="alingCenter">
+                        {{ displayAll ? 'Hide' : 'Show'}} Categories
+                    </label>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,47 @@
+.bottom-fixed a {
+    color: green !important;
+    font-weight: bolder;
+    font-style: italic;
+    cursor: pointer;
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px; 
+    width: auto; 
+    height: auto; 
+    z-index: 999999;
+}
+.blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .centered {
+    width: 100%;
+    font-size: 55px;
+    text-align: center;
+    margin: 120px 0 25px 0;
+    /* position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px; */
+  }
+  
+  .scroll{
+    /* overflow: hidden; */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 200;
+  }
+
+  .main {
+    max-height: 1500px; /* Used in this example to enable scrolling */
+    margin-top:135px;
+    z-index: 100;
+  }

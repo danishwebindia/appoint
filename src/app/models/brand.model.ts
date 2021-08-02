@@ -1,0 +1,42 @@
+import { ExperianceType, RequestType } from './system.enums';
+
+export class Brand {
+    id: number;
+    name: string;
+    description: string;
+    brandOwner: string;
+    brandOwnerEmail: string;
+    brandOwnerContactNumber: string;
+    businessNatures: number[];
+    investmentRequired: string;
+    establishmentYear: number;
+    spaceRequired: string;
+    categories: number[];
+    totalDistributors: number;
+    annualSales: number;
+    productsKeywords: string;
+    distributorshipTypes: number[];
+    requestType: RequestType;
+    products: number[];
+    pan: string;
+    gstNumber: string;
+    experianceType: ExperianceType;
+    experianceYears: string;
+    brandLogo: string;
+    countryName: string;
+    stateName: string;
+    cityName: string;
+    postalCode: string;
+    website: string;
+    distributorsBenifit: string;
+    usp: string;
+    contactPersons: string;
+    brandPrimaryAddress: string;
+    countrywiseLocations: number[];
+    regionwiseLocations: number[];
+    statewiseLocations: number[];
+    citywiseLocations: number[];
+    brandImages: string[];
+    allLocations: string[];
+    DistributorsBenefits: string;
+}

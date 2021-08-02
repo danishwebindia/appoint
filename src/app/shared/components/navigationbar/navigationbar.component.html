@@ -1,0 +1,63 @@
+<div class="pull-left w-100 backgroundClr">
+  <nav>
+    <!-- <ul class="pull-left">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="home">
+          Welcome User
+        </a>
+      </li>
+    </ul> -->
+    <ul style="margin: auto;">
+      <li>
+        <a class="nav-link">
+          <p class="fa fa-phone" style="color: black;">: <span class="name"
+              style="color: rgb(85, 83, 83)">+91-88006 50750</span> </p>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link">
+          <p class="fa fa-envelope" style="color: black;">: <span class="name"
+              style="color: rgb(85, 83, 83)">support@appointdistributors.com</span> </p>
+        </a>
+      </li>
+    </ul>
+    <ul class="pull-right">
+      <li class="nav-item">
+        <!-- <a class="nav-link" (click)="onNavBarClickEvent('distributorsleads')">Distributors Leads
+        </a> -->
+        <a class="nav-link" routerLink="distributorleads">Distributors Leads
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="openDialog('requestcallback')">Request Callback
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="!user">
+        <a class="nav-link" (click)="openDialog('login')">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!user">
+        <a class="nav-link" routerLink="register" style="color: #4CAF50 !important; "> Join Free</a>
+      </li>
+
+      <li class="nav-item" *ngIf="user">
+        <!-- <a class="nav-link" style="color: #4CAF50 !important; "> Welcome {{user?.name}}</a> -->
+        <div class="dropdown">
+          <!-- <button>Dropdown</button> -->
+          <a class="nav-link" style="color: #4CAF50 !important; "> Welcome {{user?.name}}</a>
+          <div class="dropdown-content">
+            <a (click)="openDialog('myprofile')">My Profile</a>
+            <a (click)="openDialog('mybusinessprofile')">My Buiness Profile</a>
+            <a (click)="openEnquiries()">My Enquiries</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item" *ngIf="user">
+        <a class="nav-link" style="color: #4CAF50 !important; " (click)="logout()"> Log out</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="pull-left w-100 mb-3" style="border-bottom: 1px solid #ccc;box-shadow: 0 8px 6px -6px #ccc;">
+  <app-search></app-search>
+</div>

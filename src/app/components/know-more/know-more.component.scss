@@ -1,0 +1,32 @@
+.distributordetails{
+    width: 225px;
+    border: 1px solid lightgrey;
+    height: 60px;
+    text-align: center;   
+    margin: 0 10px 20px 0px;
+    padding: 5px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1025px;
+}
+
+.seperator{
+    border-right: 1px solid lightgrey;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.imageThumbnial{
+    border: 1px solid lightgrey;
+    padding: 2px;
+}
+
+table td {
+    padding: 5px;
+    /* Apply cell padding */
+  }

@@ -1,0 +1,42 @@
+.main {
+    width: 100%;
+    padding: 15px;;
+    /* height: 100px;
+    margin: -25px 0 0 0; */
+    /*background-color: #fff !important;
+    z-index: 100;
+     box-shadow: 0 8px 6px -6px black;    
+    border-radius: 8px; */
+}
+
+.form-group{
+    margin-bottom: 0px !important;
+}
+
+.col-3, col-2, .col-8{
+    padding: 0 !important;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.center {
+    margin: auto;
+    width: 100%;    
+    /* padding:10px; */
+}

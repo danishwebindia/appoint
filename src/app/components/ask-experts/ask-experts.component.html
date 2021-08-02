@@ -1,0 +1,62 @@
+<form class="form-horizontal" [formGroup]="askExpertsForm" (ngSubmit)="askExperts()">
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <div class="form-group row">
+                <label class="col-sm-4 ask-expert-header">Ask Our Experts</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter name"
+                        name="name" (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.name}">
+                    <span class="invalid-feedback" *ngIf="formErrors.name">
+                        {{formErrors.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="mobileNumber" formControlName="mobileNumber"
+                        placeholder="Enter mobile number" name="mobileNumber" (blur)="logValidationErrors()"
+                        [ngClass]="{'is-invalid': formErrors.mobileNumber}">
+                    <span class="invalid-feedback" *ngIf="formErrors.mobileNumber">
+                        {{formErrors.mobileNumber}}
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6 pull-right">
+            <textarea class="form-control description" id="description" rows="3" formControlName="description"
+                placeholder="Enter your requirement description" name="description" (blur)="logValidationErrors()"
+                [ngClass]="{'is-invalid': formErrors.description}"></textarea>
+            <span class="invalid-feedback" *ngIf="formErrors.description">
+                {{formErrors.description}}
+            </span>
+        </div>
+    </div>
+    <div class="form-group row col-sm-12">
+        <div class="col-sm-5">
+            <div class="col-sm-12">
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="isAgreed" formControlName="isAgreed" name="isAgreed"
+                        (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.isAgreed}">
+                    I agree to abide by all the <a href="/terms-conditions.html" target="_blank">Terms and
+                        Conditions</a>
+                </label>
+                <span class="invalid-feedback" *ngIf="formErrors.isAgreed">
+                    {{formErrors.isAgreed}}
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-5">
+            <div class="col-sm-12 text-center">
+                <input type="submit" class="btn btn-primary" [disabled]="askExpertsForm.invalid" value="Submit">
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait...</p>
+</ngx-spinner> -->

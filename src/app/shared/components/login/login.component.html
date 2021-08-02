@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <h1><i class="fa fa-lock" aria-hidden="true"></i> Login</h1>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+            </div>
+            <input type="text" name="" class="form-control" formControlName="username"
+                placeholder="username or email" />
+        </div>        
+        <div class="pull-left mb-3">
+            <div style="clear: both;"></div>
+            <span class="text-danger"
+                *ngIf="(loginForm.controls.username.touched || submitted) && loginForm.controls.username.errors?.required">
+                username is required.
+            </span>
+        </div>
+
+        <br />
+        
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-key icon"></i></span>
+            </div>
+            <input type="Password" name="" class="form-control" formControlName="password" placeholder="password" />            
+        </div>
+        <div class="pull-left mb-3">
+            <div style="clear: both;"></div>
+            <span class="text-danger"
+                *ngIf="(loginForm.controls.password.touched || submitted) && loginForm.controls.password.errors?.required">
+                password is required.
+            </span>
+        </div>
+
+        <div class="pull-left mb-3" *ngIf="isLoggedIn">
+            <div style="clear: both;"></div>
+            <span class="text-danger">
+                *Invalid username or password.
+            </span>
+        </div>
+        <br />
+        <div style="clear: both;"></div>
+        <div class="checkbox">
+            <label><input type="checkbox" value="" /> Remember me</label>
+        </div><br />
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-off"></span>
+            Login</button>
+        &nbsp;
+        <button type="submit" class="btn btn-secondary pl-2" (click)="cancelRequest(null)"><span
+                class="glyphicon glyphicon-remove"></span>Cancel
+        </button><br />
+        <br />
+    </form>
+    <!-- <center>
+        <div style="border:1px solid black;height:1px;width:300px;"></div>
+    </center><br /> -->
+    <div class="footer">
+        <p>Don't have an Account! <a class='btn' style="color: #007bff; text-decoration: underline;"
+                (click)="registerUser()">Sign Up Here</a></p>
+        <!-- <p>Don't have an Account! <a routerLink="register">Sign Up Here</a></p> -->
+        <p>Forgot <a href="#">Password?</a></p>
+    </div>
+</div><!-- /container -->

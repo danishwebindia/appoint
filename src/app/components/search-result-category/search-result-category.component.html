@@ -1,0 +1,60 @@
+<div class="w-100">
+  <p class="mb-4">{{ collection.length }} Results found</p>
+
+  <div>
+    <div class="row mrb10px" *ngIf="collection.length == 0">
+      <div class="col-12 fl">
+        <div class="text-center">
+          <div class="spinner-border"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6" *ngFor="let item of collection; let i = index">
+        <!-- {{collection | json }} -->
+        <div class="card mb-3" style="max-width: 550px;">
+          <div class="row no-gutters" style="padding:10px">
+            <div class="pull-left col-md-3">
+              <div style="width:115px;">
+                <img [src]="item.brandLogo" class="card-img" alt="...">
+              </div>
+              <div>
+                {{item.name}}
+              </div>
+            </div>
+            <div class="pull-left col-md-9">
+              <p>Products Offering:</p>
+              <p style="color:lightgrey">{{item.productsKeywords}}</p>
+            </div>
+            <!-- <div class="col-md-3">
+              <div style="width:120px;height: 120px;">
+                <ngb-carousel>
+                  <ng-template *ngFor="let image of item.brandImages" ngbSlide>
+                    <img style="width:120px;height: 120px;" [src]="image" alt="Delhi Metro">
+                  </ng-template>
+                </ngb-carousel>
+              </div>
+            </div> -->
+          </div>
+          <div class="row" style="padding:10px">
+            <div class="col-md-12">
+              <p>Investment <i class="fa fa-inr" aria-hidden="true"></i>: {{item.investmentRequired}}</p>
+              <p>Space Available: {{ item.spaceRequired }}</p>
+              <p>Experience: {{ item.experianceYears + ' Years'}}</p>
+              <p>Distributers Required in: <i class="fa fa-map-marker"></i> {{item.allLocations[0]}}, {{item.stateName}}
+              </p>
+            </div>
+          </div>
+          <div class="row" style="padding:10px">
+            <div class="col-md-12">
+              <button class="btn btn-primary" (click)="openKnowMore(item.id)">Know more</button>
+              <div class="pull-right">
+                <button class="btn btn-primary" (click)="openDialog('sendenquiry',item.id)">Send Enquiry</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<!-- Become Distributor Business Profile -->
+<div style="max-height: 600px; overflow: auto;" *ngIf="businessProfile.requestType == 1">
+    <button class="btn btn-sm btn-danger pull-right" (click)="cancelRequest()">X</button>
+    <table style="margin: 0 auto;" cellspacing="5" cellpadding="5">
+        <tr>
+            <td>Business Nature</td>
+            <td>{{businessProfile.businessNature}}</td>
+        </tr>
+        <tr>
+            <td>Business Category</td>
+            <td>{{businessProfile.businessCategories}}</td>
+        </tr>
+        <tr>
+            <td>Investment Budget</td>
+            <td>{{businessProfile.investmentAmount}}</td>
+        </tr>
+        <tr>
+            <td>Products' Names</td>
+            <td>{{businessProfile.productsKeyword}}</td>
+        </tr>
+        <tr>
+            <td>PAN</td>
+            <td>{{businessProfile.pan}}</td>
+        </tr>
+        <tr>
+            <td>GST Number</td>
+            <td>{{businessProfile.gst}}</td>
+        </tr>
+        <tr>
+            <td>Experience</td>
+            <td>{{businessProfile.experiance}}</td>
+        </tr>
+        <tr>
+            <td>Distributorship Type</td>
+            <td>{{businessProfile.distributorshipType}}</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Appoint Distributor Business Profile -->
+<div style="max-height: 600px; overflow: auto;" *ngIf="businessProfile.requestType == 2">
+    <button class="btn btn-sm btn-danger pull-right" (click)="cancelRequest()">X</button>
+    <table style="margin: 0 auto;" cellspacing="5" cellpadding="5">
+        <tr>
+            <td>Brand Name</td>
+            <td>{{businessProfile.brandName}}</td>
+        </tr>
+        <tr>
+            <td>Business Nature</td>
+            <td>{{businessProfile.businessNature}}</td>
+        </tr>
+        <tr>
+            <td>Investment Required</td>
+            <td>{{businessProfile.investmentAmount}}</td>
+        </tr>
+        <tr>
+            <td>Establishment Year</td>
+            <td>{{businessProfile.establishmentYear}}</td>
+        </tr>
+        <tr>
+            <td>Space Required(Sq Ft)</td>
+            <td>{{businessProfile.space}}</td>
+        </tr>
+        <tr>
+            <td>Business Categories</td>
+            <td>{{businessProfile.businessCategories}}</td>
+        </tr>
+        <tr>
+            <td>Number of distributers</td>
+            <td>{{businessProfile.noOfDistributors}}</td>
+        </tr>
+        <tr>
+            <td>Annual Sale</td>
+            <td>{{businessProfile.annualSale}}</td>
+        </tr>
+        <tr>
+            <td>Product Keywords</td>
+            <td>{{businessProfile.productsKeyword}}</td>
+        </tr>
+        <tr>
+            <td>Distributorship Type</td>
+            <td>{{businessProfile.distributorshipType}}</td>
+        </tr>
+        <tr>
+            <td>Locations</td>
+            <td>{{businessProfile.locations}}</td>
+        </tr>
+    </table>
+</div>

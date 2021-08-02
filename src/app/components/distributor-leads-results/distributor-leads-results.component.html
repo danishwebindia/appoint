@@ -1,0 +1,55 @@
+<div class="w-100 mt-5 ml-3">
+  <p class="mb-4">{{leads?.length}} Results found for {{catagoryName}}</p>
+
+  <div class="row">
+    <div class="col-sm-6" *ngFor="let lead of leads">
+      <div class="card mb-3" style="max-width: 550px;">      
+        <div class="row" style="padding:10px">
+          <div class="col-md-12">
+            <p><b>Customer Name</b>&nbsp;<i class="fa fa-user" aria-hidden="true"></i> :  {{lead.brandOwner}}</p>
+          </div>
+        </div>
+        <div class="row" style="padding:10px">
+          <div class="col-md-12">            
+            <p>Interested in : {{ lead.productsKeywords }}</p>
+            <p>Investment <i class="fa fa-inr" aria-hidden="true"></i> : {{ lead.investmentRequired }}</p>
+            <p>Space Available : {{ lead.spaceRequired ? '100 S.F.' : lead.spaceRequired }}</p>
+            <p>Location : <i class="fa fa-map-marker"></i> {{ lead.brandPrimaryAddress }}</p>
+          </div>
+        </div>
+        <div class="row" style="padding:10px">
+          <div class="col-md-12">          
+            <div class="pull-right">              
+              <button class="btn btn-primary" (click)="ContactNow(lead.id)">Contact Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <div class="col-sm-6">
+      <div class="card mb-3" style="max-width: 550px;">      
+        <div class="row" style="padding:10px">
+          <div class="col-md-12">
+            <p><b>Customer Name</b>&nbsp;<i class="fa fa-user" aria-hidden="true"></i> :</p>
+          </div>
+        </div>
+        <div class="row" style="padding:10px">
+          <div class="col-md-12">            
+            <p>Interested Product names :</p>
+            <p>Investment <i class="fa fa-inr" aria-hidden="true"></i> :</p>
+            <p>Space Required : </p>
+            <p>Location : <i class="fa fa-map-marker"></i> PAN India/States,UP,MP</p>
+          </div>
+        </div>
+        <div class="row" style="padding:10px">
+          <div class="col-md-12">          
+            <div class="pull-right">              
+              <button class="btn btn-primary">Contact Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

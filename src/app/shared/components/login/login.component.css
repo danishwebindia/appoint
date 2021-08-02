@@ -1,0 +1,17 @@
+.container{
+    /* border:2px solid blue; */
+    text-align:center;
+    background-color:#ffffff;
+    /* height:500px; */
+    width:450px;
+    padding: 20px;
+}
+
+h1{
+    margin:auto;
+}
+.row{
+    height:90px;
+    width:396px;
+    background-color:#ffffff;
+}

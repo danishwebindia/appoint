@@ -1,0 +1,38 @@
+.ContainerPremiumBrands{
+    width:100%;   
+    /* margin: 25px 0 0 0;     */
+}
+
+.ExplorePremiumBrands{
+    font-size: 20px;
+    width: 100%;
+    /* margin: 5px 0 5px 5px; */
+}
+
+.imageFrame{
+    float: left;    
+}
+
+img {
+    display: block;
+    margin: 10px auto;      
+}
+
+.mrb10px{
+    margin-bottom: 10px;
+}
+
+.alingCenter{
+    width:100%;
+    text-align: center !important;
+    color: rgb(90, 84, 84) !important;
+}
+
+.rounded-circle{
+    border-radius: 30% !important;
+}
+
+a label:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

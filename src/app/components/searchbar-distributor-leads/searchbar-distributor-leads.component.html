@@ -1,0 +1,66 @@
+<div class="main">
+    <div class="center">
+        <div class="row">
+            <div class="col-3">
+                <div class="form-group">
+                    <select class="form-control" id="sel1" [(ngModel)]="selectedCatagory">
+                        <option value="0">Select Category</option>
+                        <option *ngFor="let catagory of catagories" [value]="catagory.id">{{catagory.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Product Name">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" (click)="searchDistributorsLeads()">
+                            <i class="fa fa-search"></i> &nbsp; Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">&nbsp;</div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <select class="form-control" id="ddnbudget">
+                                <option>Investment Budget</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <select class="form-control" id="ddnstate" [(ngModel)]="selectedState">
+                                <option value='0'>Select State</option>
+                                <option *ngFor="let state of states" [value]="state.id">{{state.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <select class="form-control" id="ddncity" [(ngModel)]="selectedcity">
+                                <option value = '0'>Select City</option>
+                                <option *ngFor="let city of cities" [value]="city.id">{{city.name}}
+                                </option>                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='distributorLeadsResult' *ngIf="result">
+    <app-distributor-leads-results [leads]="resultDistributorLeads" [catagoryName]="selectedCatagoryName"></app-distributor-leads-results>
+</div>

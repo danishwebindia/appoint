@@ -1,0 +1,78 @@
+<form class="form-horizontal" [formGroup]="requestCallbackForm" (ngSubmit)="saveRequestCallback()">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Request Callback
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter name"
+                        name="name" (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.name}">
+                    <span class="invalid-feedback" *ngIf="formErrors.name">
+                        {{formErrors.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="mobileNumber">Mobile Number:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mobileNumber" formControlName="mobileNumber"
+                        placeholder="Enter mobile number" name="mobileNumber" (blur)="logValidationErrors()"
+                        [ngClass]="{'is-invalid': formErrors.mobileNumber}">
+                    <span class="invalid-feedback" *ngIf="formErrors.mobileNumber">
+                        {{formErrors.mobileNumber}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group  row">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" formControlName="email"
+                        placeholder="Enter email" name="email" (blur)="logValidationErrors()"
+                        [ngClass]="{'is-invalid': formErrors.email}">
+                    <span class="invalid-feedback" *ngIf="formErrors.email">
+                        {{formErrors.email}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="city">City:</label>
+                <div class="col-sm-10">
+                    <input type="city" class="form-control" id="city" formControlName="city" placeholder="Enter City"
+                        name="city" (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.city}">
+                    <span class="invalid-feedback" *ngIf="formErrors.city">
+                        {{formErrors.city}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="pwd">I want to:</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="requestType" formControlName="requestType"
+                        [ngClass]="{'is-invalid': formErrors.requestType}" (blur)="logValidationErrors()">
+                        <option value="" disabled>Select</option>
+                        <option value="1">become distributor</option>
+                        <option value="2">appoint distributor</option>
+                    </select>
+                    <span class="invalid-feedback" *ngIf="formErrors.requestType">
+                        {{formErrors.requestType}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <input type="submit" class="btn btn-primary" [disabled]="requestCallbackForm.invalid" value="Submit"
+                        style="margin-right: 20px;">
+                    <input type="button" class="btn btn-secondary pl-2" (mousedown)="cancelRequest()"
+                        value="Cancel">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait...</p>
+</ngx-spinner> -->

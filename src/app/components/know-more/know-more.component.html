@@ -1,0 +1,180 @@
+<div class="pull-left w-100 p-4 mb-4" style="border: 1px solid lightgrey;border-radius: 20px;">
+  <div class="pull-left w-100">
+    <div class="pull-left imgthumbnail p-1 mr-4" style="border: 1px solid lightgrey;width:270px;height: 220px;">
+      <img style="width: 260px; height: 210px;" [src]="BrandData?.brandLogo" />
+    </div>
+    <div class="pull-left pt-2">
+      <h3 class="pull-left">
+        {{BrandData?.name}}
+      </h3>
+      <div style="clear: both;"></div>
+      <div class="pull-left pt-2">
+        <div class="pull-left distributordetails">
+          Brand Name: <br />
+          {{BrandData?.name}}
+        </div>
+        <div class="pull-left distributordetails">
+          GST No.: <br />
+          {{BrandData?.gstNumber}}
+        </div>
+        <div class="pull-left distributordetails">
+          Establisment Year: <br />
+          {{BrandData?.establishmentYear}}
+        </div>
+        <div style="clear: both;"></div>
+        <div class="pull-left distributordetails">
+          Investment Required : <br />
+          {{BrandData?.investmentRequired}}
+        </div>
+        <div class="pull-left distributordetails">
+          Space Required: <br />
+          {{BrandData?.spaceRequired}}
+        </div>
+        <div class="pull-left distributordetails">
+          No. of Employees:
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pull-left w-100 p-2 mb-4" style="border: 1px solid lightgrey;border-radius: 20px;">
+  <div class="pull-left" style="margin-left: 100px;">
+    <div class="pull-left ml-4 pr-4 seperator">
+      <b><a (click)="scroll(CompanyProfile)">Company Profile</a></b>
+    </div>
+    <div class="pull-left ml-4 pr-4 seperator">
+      <b><a (click)="scroll(ProductRange)">Our Product Range</a></b>
+    </div>
+    <div class="pull-left ml-4 pr-4 seperator">
+      <b><a (click)="scroll(InvestmentRequired)">Investment Required</a></b>
+    </div>
+    <div class="pull-left ml-4 pr-4 seperator">
+      <b><a (click)="scroll(DistributorsBenefits)">Distributor benefits</a></b>
+    </div>
+    <div class="pull-left ml-4 pr-4">
+      <b><a (click)="scroll(ContactUs)">Contact Us</a></b>
+    </div>
+  </div>
+</div>
+
+<div class="pull-left mb-5 w-100">
+  <div class="row">
+    <div id="LatestDistributorsLeads" class='col-12'>
+      <ngb-carousel>
+        <ng-template *ngFor="let images of imagesArr" ngbSlide>
+          <div class="row">
+            <div class="col-md-3" *ngFor="let image of images">
+              <div class="item-box-blog">
+                <div class="item-box-blog-body">
+                  <div class="imageThumbnial">
+                    <img width="248px" height="200px" [src]="image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</div>
+
+<div class="pull-left mb-4 w-100">
+  <div class="card">
+    <div class="card-header" #CompanyProfile>
+      Company Profile
+    </div>
+    <div class="card-body" [innerHTML]="BrandData?.description">      
+    </div>
+  </div>
+
+  <div class="pull-left mt-4 w-100">
+    <div class="card">
+      <div class="card-header" #ProductRange>
+        Our Product Range
+      </div>
+      <div class="card-body">
+        {{BrandData?.productsKeywords}}
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-left mt-4 w-100">
+    <div class="card">
+      <div class="card-header" #InvestmentRequired>
+        Investment Required
+      </div>
+      <div class="card-body">
+        <b>The offer to target customers</b>
+        <p [innerHTML]="BrandData?.investmentRequired">
+
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-left mt-4 w-100">
+    <div class="card">
+      <div class="card-header" #DistributorsBenefits>
+        Distributors Benefits
+      </div>
+      <div class="card-body" [innerHTML]="BrandData?.distributorsBenefits">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-left mt-4 w-100">
+    <div class="card">
+      <div class="card-header">
+        Products USP’s
+      </div>
+      <div class="card-body">
+        <b>Company USPs:</b>
+        <div [innerHTML]="BrandData?.usp">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-left mt-4 w-100" id="ContactDetails" #ContactUs>
+    <div class="card">
+      <div class="card-header">
+        Contact Details
+      </div>
+      <div class="card-body">
+        <table border="1" cellpadding="3px" class="w-100" style="border-collapse: collapse;border-color: lightgray;">
+          <tr>
+            <td><b>Name</b></td>
+            <td>{{BrandData?.brandOwner}}</td>
+          </tr>
+          <tr>
+            <td><b>Company Name</b></td>
+            <td>{{BrandData?.name}}</td>
+          </tr>
+          <tr>
+            <td><b>Address</b></td>
+            <td>{{BrandData?.brandPrimaryAddress}}</td>
+          </tr>          
+          <tr>
+            <td><b>Mobile</b></td>
+            <td>{{BrandData?.brandOwnerContactNumber}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-left mb-5 w-100">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-primary mr-1 w-100">Contact Us</button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-primary mr-1 w-100" (click)="openDialog('postrequirements')">Send Enquiry</button>
+    </div>
+  </div>
+</div>

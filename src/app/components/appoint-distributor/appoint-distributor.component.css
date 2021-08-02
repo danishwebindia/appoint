@@ -1,0 +1,12 @@
+span.selected-item {
+    max-width: auto !important;
+}
+.preview-images{
+    overflow-x: auto;
+    width: 100%;
+}
+.image-delete{
+    width: 80px;
+    color: blue;
+    text-align: center;
+}

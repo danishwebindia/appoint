@@ -1,0 +1,92 @@
+<!-- <div style="width:100%">
+    <button class="btn btn-danger pull-right" (click)="cancelRequest()" >X</button>
+</div> -->
+
+<form class="form-horizontal" [formGroup]="sendEnquiryForm" (ngSubmit)="postEnquiry()">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Send your enquiry
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="subject">Subject:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="subject" formControlName="subject"
+                        placeholder="Enter subject" name="subject" (blur)="logValidationErrors()"
+                        [ngClass]="{'is-invalid': formErrors.subject}">
+                    <span class="invalid-feedback" *ngIf="formErrors.subject">
+                        {{formErrors.subject}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="mobileNumber">Mobile Number:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mobileNumber" formControlName="mobileNumber"
+                        placeholder="Enter mobile number" name="mobileNumber" (blur)="logValidationErrors()"
+                        [ngClass]="{'is-invalid': formErrors.mobileNumber}">
+                    <span class="invalid-feedback" *ngIf="formErrors.mobileNumber">
+                        {{formErrors.mobileNumber}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group  row">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" formControlName="email"
+                        placeholder="Enter email" name="email" (blur)="logValidationErrors()"
+                        [ngClass]="{'is-invalid': formErrors.email}">
+                    <span class="invalid-feedback" *ngIf="formErrors.email">
+                        {{formErrors.email}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="location">Location:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="location" formControlName="location" placeholder="Enter location"
+                        name="location" (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.location}">
+                    <span class="invalid-feedback" *ngIf="formErrors.location">
+                        {{formErrors.location}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2" for="requirement">Requirement:</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="requirement" rows="3" formControlName="requirement"
+                        placeholder="Enter your requirements" name="requirement"
+                        (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.requirement}"></textarea>
+                    <span class="invalid-feedback" *ngIf="formErrors.requirement">
+                        {{formErrors.requirement}}
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="form-group row">
+                <div class="col-sm-10">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="isAgreed" formControlName="isAgreed" name="isAgreed"
+                            (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.isAgreed}">
+                        I agree to abide by all the <a href="/terms-conditions.html" target="_blank">Terms and
+                            Conditions</a>
+                    </label>
+                    <span class="invalid-feedback" *ngIf="formErrors.isAgreed">
+                        {{formErrors.isAgreed}}
+                    </span>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <input type="submit" class="btn btn-primary" [disabled]="sendEnquiryForm.invalid" value="Submit"
+                        style="margin-right: 20px;">
+                    <input type="button" class="btn btn-secondary pl-2" value="Cancel" (mousedown)="cancelRequest()"
+                        value="Cancel">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait...</p>
+</ngx-spinner> -->
