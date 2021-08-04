@@ -6,3 +6,19 @@
 .description{
     border-radius: 10px;
 }
+@media screen and (min-width:300px) and (max-width: 767px) {
+
+    .mobile-view{width: 50%;}
+    
+    .sm-width {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .Mo-term-width{max-width: 75%;
+        flex: 75%;}
+    .ask-expert-header{font-size: 13px;}
+    .mobile-hide{display: none;}
+    .mobile-btn{max-width: 20%;flex: 20%;}
+    .ptop35{padding-top: 6%;}
+   
+   }

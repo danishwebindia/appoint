@@ -29,9 +29,6 @@ img {
     margin-bottom: 10px;
 }
 
-.fl{
-    float: left;
-}
 
 .alingCenter{
     width:100%;
@@ -41,3 +38,25 @@ img {
 .img-thumbnail{
     height:150px;
 }
+
+@media screen and (max-width: 481px) {
+ .ContainerPremiumBrands .col-2{flex: 50%; max-width: 50%;
+    }
+ .row{
+ flex-flow: row wrap;
+ justify-content: space-around;
+ width: 100%;
+ }
+
+}
+@media screen and (min-width:482px) and (max-width: 1023px) {
+
+    .ContainerPremiumBrands .col-2{flex: 33%; max-width:33%;
+       }
+    .row{
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+    }
+   
+   }

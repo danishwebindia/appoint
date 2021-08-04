@@ -10,7 +10,8 @@
 }
 
 .imageFrame{
-    float: left;    
+    display: inline-block;  
+    vertical-align: text-top;
 }
 
 img {
@@ -36,3 +37,21 @@ a label:hover{
     cursor: pointer;
     text-decoration: underline;
 }
+.product-box{width:16.666667%;}
+.product-flex{display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
+@media screen and (min-width:500px) and (max-width: 800px) {
+    .col-2{ flex: 0 0 30.666667%;
+        max-width: 30.666667%;}
+}
+@media screen and (min-width:500px) and (max-width: 767px) {
+    .ContainerPremiumBrands{margin-top: 116px;}
+}
+@media screen and (min-width:300px) and (max-width: 499px) {
+    .col-2{ flex: 0 0 50%;
+        max-width: 50%;}
+    .ContainerPremiumBrands{margin-top: 116px;}
+    }

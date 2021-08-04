@@ -1,8 +1,8 @@
 <form class="form-horizontal" [formGroup]="askExpertsForm" (ngSubmit)="askExperts()">
     <div class="form-group row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 mobile-view">
             <div class="form-group row">
-                <label class="col-sm-4 ask-expert-header">Ask Our Experts</label>
+                <label class="col-sm-4 ask-expert-header sm-width">Ask Our Experts</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter name"
                         name="name" (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.name}">
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-4 sm-width"></div>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="mobileNumber" formControlName="mobileNumber"
                         placeholder="Enter mobile number" name="mobileNumber" (blur)="logValidationErrors()"
@@ -24,7 +24,7 @@
 
             </div>
         </div>
-        <div class="col-sm-6 pull-right">
+        <div class="col-sm-6 mobile-view ptop35">
             <textarea class="form-control description" id="description" rows="3" formControlName="description"
                 placeholder="Enter your requirement description" name="description" (blur)="logValidationErrors()"
                 [ngClass]="{'is-invalid': formErrors.description}"></textarea>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="form-group row col-sm-12">
-        <div class="col-sm-5">
+        <div class="col-sm-5 Mo-term-width">
             <div class="col-sm-12">
                 <label class="checkbox-inline">
                     <input type="checkbox" id="isAgreed" formControlName="isAgreed" name="isAgreed"
@@ -47,8 +47,8 @@
                 </span>
             </div>
         </div>
-        <div class="col-sm-2"></div>
-        <div class="col-sm-5">
+        <div class="col-sm-2 mobile-hide"></div>
+        <div class="col-sm-5 mobile-btn">
             <div class="col-sm-12 text-center">
                 <input type="submit" class="btn btn-primary" [disabled]="askExpertsForm.invalid" value="Submit">
             </div>
