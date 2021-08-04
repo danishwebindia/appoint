@@ -1,4 +1,4 @@
-<div class="pull-left w-100 backgroundClr">
+<div class="pull-left w-100 backgroundClr d-none d-md-block">
   <nav>
     <!-- <ul class="pull-left">
       <li class="nav-item">
@@ -7,7 +7,7 @@
         </a>
       </li>
     </ul> -->
-    <ul style="margin: auto;">
+    <ul style="margin: auto;" class="d-xs-none">
       <li>
         <a class="nav-link">
           <p class="fa fa-phone" style="color: black;">: <span class="name"
@@ -59,5 +59,5 @@
   </nav>
 </div>
 <div class="pull-left w-100 mb-3" style="border-bottom: 1px solid #ccc;box-shadow: 0 8px 6px -6px #ccc;">
-  <app-search></app-search>
+  <app-search [user]="user"></app-search>
 </div>

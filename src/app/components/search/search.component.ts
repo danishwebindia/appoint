@@ -11,6 +11,7 @@ import { DialogComponent } from 'src/app/shared/components/dialog/dialog.compone
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit, OnDestroy {
+  @Input() user;
   event$;
   public displaySearch: boolean;
   public catagories: any[] = [];
@@ -19,7 +20,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   // tslint:disable-next-line: no-inferrable-types
   public catagoryId: number = 0;
   public keyword: string;
-
+  public isOpen:boolean = false;
+  public isOpenCate:boolean = false;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -72,10 +74,19 @@ export class SearchComponent implements OnInit, OnDestroy {
     });
   }
 
-  setCatagoryId(catagoryId: number): void{    
+  setCatagoryId(catagoryId: number): void{
     this.catagoryId = catagoryId;
   }
 
+  openMenu(){
+    console.log(this.isOpen);
+
+    this.isOpen =! this.isOpen;
+  }
+
+  openCate(){
+    this.isOpenCate =! this.isOpenCate;
+  }
   ngOnDestroy(): void {
     this.event$.unsubscribe();
   }
