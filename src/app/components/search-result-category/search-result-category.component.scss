@@ -1,3 +1,16 @@
 p {
     margin: 10px 0 0 0;
 }
+
+.card-img{
+  width:115px;
+}
+
+@media screen and (min-width:279px) and (max-width:767px) {
+  .card-img{
+    width:60%;
+  }
+  .brand-container{
+    text-align: center; font-size: 30px;
+  }
+}

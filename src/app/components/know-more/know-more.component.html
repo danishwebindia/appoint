@@ -1,61 +1,92 @@
-<div class="pull-left w-100 p-4 mb-4" style="border: 1px solid lightgrey;border-radius: 20px;">
-  <div class="pull-left w-100">
-    <div class="pull-left imgthumbnail p-1 mr-4" style="border: 1px solid lightgrey;width:270px;height: 220px;">
-      <img style="width: 260px; height: 210px;" [src]="BrandData?.brandLogo" />
-    </div>
-    <div class="pull-left pt-2">
-      <h3 class="pull-left">
-        {{BrandData?.name}}
-      </h3>
-      <div style="clear: both;"></div>
-      <div class="pull-left pt-2">
-        <div class="pull-left distributordetails">
-          Brand Name: <br />
-          {{BrandData?.name}}
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <div class="imgthumbnail my-3" style="border: 1px solid lightgrey;">
+          <img class="brand-logo" [src]="BrandData?.brandLogo" />
         </div>
-        <div class="pull-left distributordetails">
-          GST No.: <br />
-          {{BrandData?.gstNumber}}
+      </div>
+      <div class="col-md-9">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="pull-left">
+              {{BrandData?.companyName}}
+            </h3>
+          </div>
+          <div class="col-md-4 my-2">
+            <div class="card">
+              <div class="card-body text-center data-height">
+                Brand Name: <br />
+              {{BrandData?.name}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 my-2">
+            <div class="card">
+              <div class="card-body text-center data-height">
+                GST No.: <br />
+                {{BrandData?.gstNumber}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 my-2">
+            <div class="card">
+              <div class="card-body text-center data-height">
+                Establisment Year: <br />
+                {{BrandData?.establishmentYear}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 my-2">
+            <div class="card">
+              <div class="card-body text-center data-height">
+                Investment Required : <br />
+                {{BrandData?.investmentRequired}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 my-2">
+            <div class="card">
+              <div class="card-body text-center data-height">
+                Space Required: <br />
+                {{BrandData?.spaceRequired}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 my-2">
+            <div class="card">
+              <div class="card-body text-center data-height">
+                No. of Employees:
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="pull-left distributordetails">
-          Establisment Year: <br />
-          {{BrandData?.establishmentYear}}
-        </div>
-        <div style="clear: both;"></div>
-        <div class="pull-left distributordetails">
-          Investment Required : <br />
-          {{BrandData?.investmentRequired}}
-        </div>
-        <div class="pull-left distributordetails">
-          Space Required: <br />
-          {{BrandData?.spaceRequired}}
-        </div>
-        <div class="pull-left distributordetails">
-          No. of Employees:
-        </div>
+
       </div>
     </div>
   </div>
 </div>
-<div class="pull-left w-100 p-2 mb-4" style="border: 1px solid lightgrey;border-radius: 20px;">
-  <div class="pull-left" style="margin-left: 100px;">
-    <div class="pull-left ml-4 pr-4 seperator">
-      <b><a (click)="scroll(CompanyProfile)">Company Profile</a></b>
-    </div>
-    <div class="pull-left ml-4 pr-4 seperator">
-      <b><a (click)="scroll(ProductRange)">Our Product Range</a></b>
-    </div>
-    <div class="pull-left ml-4 pr-4 seperator">
-      <b><a (click)="scroll(InvestmentRequired)">Investment Required</a></b>
-    </div>
-    <div class="pull-left ml-4 pr-4 seperator">
-      <b><a (click)="scroll(DistributorsBenefits)">Distributor benefits</a></b>
-    </div>
-    <div class="pull-left ml-4 pr-4">
-      <b><a (click)="scroll(ContactUs)">Contact Us</a></b>
-    </div>
+<div class="row my-4">
+  <div class="col-md-12">
+    <ul class="nav justify-content-center categories-menu" style="border: 1px solid lightgrey;border-radius: 20px;">
+      <li class="nav-item">
+        <a (click)="scroll(CompanyProfile)" class="nav-link">Company Profile</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="scroll(ProductRange)" class="nav-link">Our Product Range</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="scroll(InvestmentRequired)" class="nav-link">Investment Required</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="scroll(ContactUs)" class="nav-link">Contact Us</a>
+      </li>
+    </ul>
   </div>
 </div>
+
+
 
 <div class="pull-left mb-5 w-100">
   <div class="row">
@@ -63,11 +94,11 @@
       <ngb-carousel>
         <ng-template *ngFor="let images of imagesArr" ngbSlide>
           <div class="row">
-            <div class="col-md-3" *ngFor="let image of images">
+            <div class="col-lg-3 col-sm-6" *ngFor="let image of images">
               <div class="item-box-blog">
                 <div class="item-box-blog-body">
                   <div class="imageThumbnial">
-                    <img width="248px" height="200px" [src]="image" />
+                    <img class="cate-slider-img" [src]="image" />
                   </div>
                 </div>
               </div>
@@ -84,7 +115,7 @@
     <div class="card-header" #CompanyProfile>
       Company Profile
     </div>
-    <div class="card-body" [innerHTML]="BrandData?.description">      
+    <div class="card-body" [innerHTML]="BrandData?.description">
     </div>
   </div>
 
@@ -157,7 +188,7 @@
           <tr>
             <td><b>Address</b></td>
             <td>{{BrandData?.brandPrimaryAddress}}</td>
-          </tr>          
+          </tr>
           <tr>
             <td><b>Mobile</b></td>
             <td>{{BrandData?.brandOwnerContactNumber}}</td>
@@ -170,7 +201,7 @@
 
 <div class="pull-left mb-5 w-100">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mb-2">
       <button class="btn btn-primary mr-1 w-100">Contact Us</button>
     </div>
     <div class="col-md-6">

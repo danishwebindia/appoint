@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catagory-onload',
@@ -9,9 +10,15 @@ export class CatagoryOnloadComponent implements OnInit {
 
   @Input() catagoriesOnLoad: any[] = [];
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  openAllRealtedBrands(catagoryId: number): void {
+    if (catagoryId > 0) {
+      this._router.navigate(['searchresultcategory', catagoryId]);
+    }
   }
 
 }

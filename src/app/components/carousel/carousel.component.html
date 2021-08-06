@@ -8,8 +8,8 @@
                 <ngb-carousel>
                     <ng-template *ngFor="let rowItem of distributorLeads" ngbSlide>
                         <div class="row">
-                            <div class="col-md-3" *ngFor="let colItems of rowItem">
-                                <div class="item-box-blog">                                    
+                            <div class="col-lg-3 col-sm-6" *ngFor="let colItems of rowItem">
+                                <div class="item-box-blog">
                                     <div class="item-box-blog-body" style="font-size: 10px;">
                                         <!--Heading-->
                                         <div class="item-box-blog-heading">
@@ -28,7 +28,7 @@
                                         <!--Text-->
                                         <div class="item-box-blog-text" style="height: 250px !important; text-align: left;">
                                             <!-- <label>Client name : {{ colItems.brandOwner == null ? 'Not provided' : colItems.brandOwner  }}</label> -->
-                                            <label>City (State) : {{ colItems.brandPrimaryAddress == null ? 'Not provided' : colItems.brandPrimaryAddress  }}</label>                                            
+                                            <label>City (State) : {{ colItems.brandPrimaryAddress == null ? 'Not provided' : colItems.brandPrimaryAddress  }}</label>
                                             <label>Client wants to take distributorship :  {{colItems.productsKeywords}}</label>
                                             <!-- <label>Contact No : 9579306880 </label> -->
                                             <label>Experienced : {{colItems.experianceType}}</label>
@@ -42,9 +42,9 @@
                                         <!--Read More Button-->
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
-                    </ng-template>                    
+                    </ng-template>
                 </ngb-carousel>
             </div>
         </div>

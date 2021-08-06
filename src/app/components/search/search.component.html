@@ -1,43 +1,18 @@
-<div class="container">
-    <div class="pull-left" style="width:100% ;padding: 10px 0 !important;">
-        <div class="center">
-            <div class="pull-left" style="width: 20%;">
-
-
-                <!-- <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a> -->
-            </div>
-            <div class="pull-left" style="width:80%">
-                <div class="pull-left" style="width:78%; margin: 0 10px;">
-                    <div class="pull-left w-100">
-
-
-                    </div>
-                </div>
-                <div class="pull-right pt-1">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
  <div class="container">
-  <div class="row mb-3">
-    <div class="col-md-3 mb-md-2">
-      <a routerLink="home">
-        <img src="../../../assets/images/logo.jpeg" height="50px" />
+  <div class="row py-3">
+    <div class="col-md-3  mb-mobo-2">
+      <a routerLink="home" (click)="keyword = ''">
+        <img src="../../../assets/images/logo.jpeg" class="logo-img" height="50px" />
       </a>
-      <a href="javascript:void(0)" (click)="openMenu()" class="d-md-none pull-right"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="javascript:void(0)" (click)="openMenu('memu-slide')" class="d-md-none pull-right hamburger"><i class="fa fa-bars" aria-hidden="true"></i></a>
     </div>
     <div class="col-md-9">
       <div class="row">
-        <div class="col-md-12 d-md-none" *ngIf="isOpen">
-            <ul class="nav flex-column">
-              <li>
-                <a class="nav-link">
-                  <p class="fa fa-phone" style="color: black;">: <span class="name"
-                      style="color: rgb(85, 83, 83)">+91-88006 50750</span> </p>
+        <div class="col-md-12 d-md-none memu-slide"  [@slideInOut]="animationState">
+            <ul class="nav mobo-menu flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="tel:88006 50750">
+                  <i class="fa fa-phone"></i> +91-88006 50750
                 </a>
               </li>
               <li class="nav-item">
@@ -70,75 +45,75 @@
             </ul>
         </div>
         <div class="col-md-12 d-md-none">
-          <ul class="nav">
+          <ul class="nav main-menu-mobo">
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" (click)="openCate()">Trending Categories</a>
+              <a class="nav-link" href="javascript:void(0)" (click)="openCate('cate-slide')">Trending Categories</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ml-auto">
               <a class="nav-link" routerLink="distributorleads">Distributors Leads</a>
             </li>
           </ul>
         </div>
         <div class="col-md-12 d-md-none">
-          <ul class="nav flex-column" *ngIf="isOpenCate">
+          <ul class="nav cate-slide"  [@slideInOut]="animationCate">
             <!-- <li *ngFor="let catagory of catagoriesOnLoad">
               <img width="30px" height="30px" class="rounded-circle mr-2" [src]="catagory.image" />
               <a>{{ catagory.name }}</a> <i
                 class="pull-right arrow right"></i>
             </li> -->
-            <li>
+            <li class="nav-item">
+              <a [routerLink]="['../searchresultcategory', 12 ]"  (click)="openCate('cate-slide')" class="nav-link">
               <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Food & Beverage.jfif" />
-              <a [routerLink]="['../searchresultcategory', 12 ]">Food & Beverage</a> <i
+              Food &amp; Beverage <i class="pull-right arrow right"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 15 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Health & Personal Care.jfif" /> Health &amp; Personal Care</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Health & Personal Care.jfif" />
-              <a [routerLink]="['../searchresultcategory', 15 ]">Health & Personal Care</a> <i
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 16 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Home Cleaning Products.jfif" /> Home Cleaning Products</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Home Cleaning Products.jfif" />
-              <a [routerLink]="['../searchresultcategory', 16 ]">Home Cleaning Products</a> <i
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 2 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Apparel & Fashion.jfif" /> Apparel &amp; Fashion</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Apparel & Fashion.jfif" />
-              <a [routerLink]="['../searchresultcategory', 2 ]">Apparel & Fashion</a> <i
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 3 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Automobile & Transportation.jfif" /> Automobile &amp; Transportation</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Automobile & Transportation.jfif" />
-              <a [routerLink]="['../searchresultcategory', 3 ]">Automobile & Transportation</a> <i
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 1 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Agriculture & Farming.jfif" /> Agriculture &amp; Farming</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Agriculture & Farming.jfif" />
-              <a [routerLink]="['../searchresultcategory', 1 ]">Agriculture & Farming</a> <i
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 8 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Consumer Elctronic.png" /> Consumer Elctronic</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Consumer Elctronic.png" />
-              <a [routerLink]="['../searchresultcategory', 8 ]">Consumer Elctronic</a> <i
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 9 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Electronics & Electrical Supplies.png" /> Electronics &amp; Electrical Supplies</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Electronics & Electrical Supplies.png" />
-              <a [routerLink]="['../searchresultcategory', 9 ]">Electronics & Electrical Supplies</a> <i
+            <li class="nav-item">
+
+              <a [routerLink]="['../searchresultcategory', 31 ]"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Pharmaceuticals (PCD).jfif" />  Pharmaceuticals (PCD)</a> <i
                 class="pull-right arrow right"></i>
             </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/icon/Pharmaceuticals (PCD).jfif" />
-              <a [routerLink]="['../searchresultcategory', 31 ]">Pharmaceuticals (PCD)</a> <i
-                class="pull-right arrow right"></i>
-            </li>
-            <li>
-              <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/all-cat.jpeg" />
-              <a href="#" style="color:darkblue !important;"> All Catagories</a>
+            <li class="nav-item">
+              <a href="#" style="color:darkblue !important;"  (click)="openCate('cate-slide')" class="nav-link"><img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/all-cat.jpeg" /> All Catagories</a>
             </li>
           </ul>
         </div>
-        <div class="col-md-9">
-          <div class="input-group mb-sm-3"  *ngIf="displaySearch">
+        <div class="col-md-9 my-search-3">
+          <div class="input-group"  *ngIf="displaySearch">
             <input type="text" class="form-control" placeholder="Search products"
                 (keydown.enter)="onKeyDownEvent($event)" style="height: 45px;" [(ngModel)]="keyword" >
             <div class="input-group-append">
@@ -161,28 +136,5 @@
     </div>
   </div>
 </div>
-<!-- <ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-</ul>
-
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-</ul> -->
 
 

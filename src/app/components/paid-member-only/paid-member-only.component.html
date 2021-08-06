@@ -1,9 +1,12 @@
-<div style="width:100%">
-    <button class="btn btn-danger pull-right" (click)="cancelRequest()" >X</button>
-</div>
 
-<p>'You are not subscibed to view leads of this catagory. To get subssciption kindly click on Request callback.';</p>
+<div class="card">
+  <div class="card-header text-center">
+    Profile Details <button class="btn btn-sm btn-danger pull-right" (click)="cancelRequest()" >X</button>
+  </div>
 
-<div style="width:100%">
-    <button type="button" class="btn btn-primary" (click)="openRequestCallBack()">Request Callback</button>
+  <p style="padding: 15px;">'You are not subscibed to view leads of this catagory. To get subssciption kindly click on Request callback.'</p>
+    <div class="text-center">
+      <button type="button" class="btn btn-primary mb-3" (click)="openRequestCallBack()">Request Callback</button>
+    </div>
+
 </div>

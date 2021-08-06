@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class ApploadDataService {
 
-  private API_URL= environment.API_URL;
+  private API_URL = environment.API_URL;
   webAPIUrl: string;
   // private token = localStorage.getItem('jwt');
   private httpOptions = {

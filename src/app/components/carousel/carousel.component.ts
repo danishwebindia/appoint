@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DistributorService } from 'src/app/services/distributor.service';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
-
+import { BreakpointObserver, Breakpoints, BreakpointState, MediaMatcher } from '@angular/cdk/layout';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -12,20 +12,40 @@ import { DialogComponent } from 'src/app/shared/components/dialog/dialog.compone
 export class CarouselComponent implements OnInit {
 
   @Input() distributorLeads: any[] = [];
-
+  showNavigationArrows = false;
   constructor(
     config: NgbCarouselConfig,
     public dialog: MatDialog,
-    private distributorService: DistributorService) {
+    private distributorService: DistributorService,
+    public breakpointObserver: BreakpointObserver,
+    public mediaMatcher: MediaMatcher) {
     config.interval = 50000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = true;
-    config.showNavigationArrows = false;
+    config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
   }
 
   ngOnInit(): void {
+
+
+    this.breakpointObserver.observe([Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge])
+    .subscribe((state: BreakpointState) => {
+      if(state.breakpoints['(max-width: 599.98px)']==true){
+        this.showNavigationArrows = true;
+      } else if(state.breakpoints['(min-width: 600px) and (max-width: 959.98px)']==true){
+        this.showNavigationArrows = true;
+
+      } else {
+
+        this.showNavigationArrows = false;
+      }
+    })
   }
 
   openDialog(componentName): void {
@@ -51,6 +71,7 @@ export class CarouselComponent implements OnInit {
         element.forEach(item => {
           distributorLeadsArr.push(item);
         });
+
       });
 
       const lead = distributorLeadsArr.find(d => d.id === id);

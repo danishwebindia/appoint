@@ -1,3 +1,6 @@
 p {
     margin: 0px;
 }
+@media screen and (min-width:300px) and (max-width: 767px) {
+    .card-mobile{width: auto !important;padding-left: 0; margin-left: 0 !important;}
+  }

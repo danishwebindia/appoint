@@ -2,7 +2,7 @@
     width: 225px;
     border: 1px solid lightgrey;
     height: 60px;
-    text-align: center;   
+    text-align: center;
     margin: 0 10px 20px 0px;
     padding: 5px;
 }
@@ -29,4 +29,35 @@ a:hover{
 table td {
     padding: 5px;
     /* Apply cell padding */
+  }
+  .data-height{min-height:87px;}
+  .brand-logo{
+    width: 100%; height: 225px;
+  }
+
+  .categories-menu li a{
+    color: #212529;
+    position: relative;
+  }
+
+  .categories-menu li a:after {
+    content: "";
+    background: lightgray;
+    position: absolute;
+    top: 0;
+    width: 0.5px;
+    height: 41px;
+    left: 0px;
+  }
+  .categories-menu li:first-child a:after {
+    content: none;
+  }
+  .categories-menu li a:hover{
+    text-decoration: underline;
+  }
+  .cate-slider-img{width: 100%; height: 200px;}
+  @media screen and (min-width:279px) and (max-width: 767px) {
+    .categories-menu li a:after {
+      content: none;
+    }
   }

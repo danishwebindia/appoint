@@ -1,46 +1,57 @@
 <!-- Become Distributor Business Profile -->
-<div style="max-height: 600px; overflow: auto;" *ngIf="businessProfile.requestType == 1">
+
+<div class="card" *ngIf="businessProfile.requestType == 1">
+  <div class="card-header text-center">
+     Business Profile
     <button class="btn btn-sm btn-danger pull-right" (click)="cancelRequest()">X</button>
-    <table style="margin: 0 auto;" cellspacing="5" cellpadding="5">
-        <tr>
-            <td>Business Nature</td>
-            <td>{{businessProfile.businessNature}}</td>
-        </tr>
-        <tr>
-            <td>Business Category</td>
-            <td>{{businessProfile.businessCategories}}</td>
-        </tr>
-        <tr>
-            <td>Investment Budget</td>
-            <td>{{businessProfile.investmentAmount}}</td>
-        </tr>
-        <tr>
-            <td>Products' Names</td>
-            <td>{{businessProfile.productsKeyword}}</td>
-        </tr>
-        <tr>
-            <td>PAN</td>
-            <td>{{businessProfile.pan}}</td>
-        </tr>
-        <tr>
-            <td>GST Number</td>
-            <td>{{businessProfile.gst}}</td>
-        </tr>
-        <tr>
-            <td>Experience</td>
-            <td>{{businessProfile.experiance}}</td>
-        </tr>
-        <tr>
-            <td>Distributorship Type</td>
-            <td>{{businessProfile.distributorshipType}}</td>
-        </tr>
-    </table>
+  </div>
+
+  <table class="table" cellspacing="5" cellpadding="5">
+    <tr>
+        <td>Business Nature</td>
+        <td>{{businessProfile.businessNature}}</td>
+    </tr>
+    <tr>
+        <td>Business Category</td>
+        <td>{{businessProfile.businessCategories}}</td>
+    </tr>
+    <tr>
+        <td>Investment Budget</td>
+        <td>{{businessProfile.investmentAmount}}</td>
+    </tr>
+    <tr>
+        <td>Products' Names</td>
+        <td>{{businessProfile.productsKeyword}}</td>
+    </tr>
+    <tr>
+        <td>PAN</td>
+        <td>{{businessProfile.pan}}</td>
+    </tr>
+    <tr>
+        <td>GST Number</td>
+        <td>{{businessProfile.gst}}</td>
+    </tr>
+    <tr>
+        <td>Experience</td>
+        <td>{{businessProfile.experiance}}</td>
+    </tr>
+    <tr>
+        <td>Distributorship Type</td>
+        <td>{{businessProfile.distributorshipType}}</td>
+    </tr>
+</table>
+
 </div>
 
+
 <!-- Appoint Distributor Business Profile -->
-<div style="max-height: 600px; overflow: auto;" *ngIf="businessProfile.requestType == 2">
+<div class="card" *ngIf="businessProfile.requestType == 2">
+  <div class="card-header text-center">
+     Business Profile
     <button class="btn btn-sm btn-danger pull-right" (click)="cancelRequest()">X</button>
-    <table style="margin: 0 auto;" cellspacing="5" cellpadding="5">
+  </div>
+
+    <table class="table" cellspacing="5" cellpadding="5">
         <tr>
             <td>Brand Name</td>
             <td>{{businessProfile.brandName}}</td>

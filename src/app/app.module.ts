@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-
+import { LayoutModule } from '@angular/cdk/layout';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
@@ -47,6 +47,7 @@ import { SendEnquiryComponent } from './components/send-enquiry/send-enquiry.com
 import { DisplayBrandEnquiriesComponent } from './components/display-brand-enquiries/display-brand-enquiries.component';
 import { ReplyEnquiriesComponent } from './components/reply-enquiries/reply-enquiries.component';
 import { SendEmailService } from './services/send-email.service';
+import { ContactCustomerCareComponent } from './components/contact-customer-care/contact-customer-care.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { SendEmailService } from './services/send-email.service';
     PaidMemberOnlyComponent,
     SendEnquiryComponent,
     DisplayBrandEnquiriesComponent,
-    ReplyEnquiriesComponent
+    ReplyEnquiriesComponent,
+    ContactCustomerCareComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,8 @@ import { SendEmailService } from './services/send-email.service';
     MatIconModule,
     ToastrModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
-    NgbModule
+    NgbModule,
+    LayoutModule
   ],
   providers: [
     EnquiryService,

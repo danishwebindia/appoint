@@ -5,7 +5,7 @@ import { trigger, state, style, transition,
 export const SlideInOutAnimation = [
   trigger('slideInOut', [
       state('in', style({
-          'max-height': '500px', 'opacity': '1', 'visibility': 'visible'
+          'max-height': '600px', 'opacity': '1', 'visibility': 'visible'
       })),
       state('out', style({
           'max-height': '0px', 'opacity': '0', 'visibility': 'hidden'

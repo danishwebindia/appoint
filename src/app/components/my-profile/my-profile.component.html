@@ -1,25 +1,30 @@
-<button class="btn btn-sm btn-danger pull-right" (click)="cancelRequest()" >X</button>
-<div>   
-    <table style="margin: 0 auto;" cellspacing="5" cellpadding="5">        
-        <tr>
-            <td>Name</td>
-            <td>{{user.name}}</td>
-        </tr>
-        <tr>
-            <td>Mobile Number</td>
-            <td>{{user.contactNumber}}</td>
-        </tr>
-        <tr>
-            <td>Website URL</td>
-            <td>{{user.website}}</td>
-        </tr>
-        <!-- <tr>
-            <td>City</td>
-            <td>NA</td>
-        </tr> -->
-        <tr>
-            <td>Address</td>
-            <td>{{user.address}}</td>
-        </tr>                
-    </table>
+
+<div class="card">
+  <div class="card-header text-center">
+    Profile Details <button class="btn btn-sm btn-danger pull-right" (click)="cancelRequest()" >X</button>
+  </div>
+
+    <table class="table" cellspacing="5" cellpadding="5">
+      <tr>
+          <td>Name</td>
+          <td>{{user.name}}</td>
+      </tr>
+      <tr>
+          <td>Mobile Number</td>
+          <td>{{user.contactNumber}}</td>
+      </tr>
+      <tr>
+          <td>Website URL</td>
+          <td>{{user.website}}</td>
+      </tr>
+      <!-- <tr>
+          <td>City</td>
+          <td>NA</td>
+      </tr> -->
+      <tr>
+          <td>Address</td>
+          <td>{{user.address}}</td>
+      </tr>
+  </table>
+
 </div>

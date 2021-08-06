@@ -15,6 +15,7 @@ import { DialogComponent } from 'src/app/shared/components/dialog/dialog.compone
 export class SearchResultCategoryComponent implements OnInit {
 
   public collection: any[] = [];
+  public displaySpinner: boolean = false;
   constructor(
     config: NgbCarouselConfig,
     private router: Router,
@@ -33,8 +34,9 @@ export class SearchResultCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.SpinnerService.show();
+    this.displaySpinner = true;
     this._activatedRoute.params.subscribe(parameter => {
-
+      this.displaySpinner = false;
       if (parameter.id && parameter.key) {
         this.distributorService.getBrandsByCategoryAndProductsKeyword(parameter.id, parameter.key).subscribe((result) => {
           this.collection = result;

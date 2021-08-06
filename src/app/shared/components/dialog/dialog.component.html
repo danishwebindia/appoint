@@ -15,3 +15,5 @@
 <app-send-enquiry (closePopupEvent)="onNoClick($event)" *ngIf="data[0] == 'sendenquiry'" [brandId]="data[1]"></app-send-enquiry>
 
 <app-reply-enquiries (closePopupEvent)="onNoClick($event)" *ngIf="data[0] == 'replyToenquiry'" [emailId]="data[1]" [enquiryId]="data[2]"></app-reply-enquiries>
+
+<app-contact-customer-care (closePopupEvent)="onNoClick($event)" *ngIf="data == 'customercare'"></app-contact-customer-care>
