@@ -42,7 +42,8 @@ export class BecomeDistributorComponent implements OnInit {
     //brandName: '',
     businessNature: '',
     categories: '',
-    investmentRequired: '',
+    minInvestmentAmount: '',
+    maxInvestmentAmount: '',
     spaceRequired: '',
     pan: '',
     gstNumber: '',
@@ -62,9 +63,13 @@ export class BecomeDistributorComponent implements OnInit {
     categories: {
       required: 'Category is required.',
     },
-    investmentRequired: {
-      required: 'Investment amount is required.',
-      startingWithEmptySpace: 'You cannot start with empty spaces.',
+    minInvestmentAmount: {
+      required: 'Please provide minimum investment amount.',
+      pattern: 'Only numbers are allowed.'
+    },
+    maxInvestmentAmount: {
+      required: 'Please provide maximum investment amount.',
+      pattern: 'Only numbers are allowed.'
     },
     spaceRequired: {
       required: 'Space is required.',
@@ -159,7 +164,8 @@ export class BecomeDistributorComponent implements OnInit {
       categories: [[]],
       products: [''],
       // investmentRequired: ['', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-      investmentRequired: ['', [CustomValidators.startingWithEmptySpace()]],
+      minInvestmentAmount: ['', [Validators.pattern(/^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$/)]],
+      maxInvestmentAmount: ['', [Validators.pattern(/^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$/)]],
       spaceRequired: ['', [CustomValidators.startingWithEmptySpace()]],
       // pan: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/[A-Z]{5}[0-9]{4}[A-Z]{1}/)]],
       pan: ['', [Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/[A-Z]{5}[0-9]{4}[A-Z]{1}/)]],
@@ -205,7 +211,8 @@ export class BecomeDistributorComponent implements OnInit {
     brand.description = this.becomeDistributorForm.value.description;
     brand.categories = [parseInt(this.becomeDistributorForm.value.categories)];
     brand.businessNatures = this.becomeDistributorForm.value.businessNatures != "" ? this.becomeDistributorForm.value.businessNatures.map(({ id }) => id) : null;
-    brand.investmentRequired = this.becomeDistributorForm.value.investmentRequired;
+    brand.minInvestmentAmount = this.becomeDistributorForm.value.minInvestmentAmount;
+    brand.maxInvestmentAmount = this.becomeDistributorForm.value.maxInvestmentAmount;
     brand.spaceRequired = this.becomeDistributorForm.value.spaceRequired;
     //brand.products = this.becomeDistributorForm.value.products != "" ? this.becomeDistributorForm.value.products.map(({ id }) => id) : null;
     brand.productsKeywords = this.becomeDistributorForm.value.products;

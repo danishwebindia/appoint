@@ -42,11 +42,12 @@ export class AppointDistributorComponent implements OnInit {
   formErrors = {
     brandName: '',
     businessNature: '',
-    investmentRequired: '',
+    minInvestmentAmount: '',
+    maxInvestmentAmount: '',
     establishmentYear: '',
     spaceRequired: '',
     categories: '',
-    totalDistributors: '',
+    totalEmployees: '',
     annualSales: '',
     productsKeywords: '',
     //distributorshipType: '',
@@ -61,9 +62,13 @@ export class AppointDistributorComponent implements OnInit {
     businessNature: {
       required: 'Business nature is required.',
     },
-    investmentRequired: {
-      required: 'Investment amount is required.',
-      startingWithEmptySpace: 'You cannot start with empty spaces.',
+    minInvestmentAmount: {
+      required: 'Please provide minimum investment amount.',
+      pattern: 'Only numbers are allowed.'
+    },
+    maxInvestmentAmount: {
+      required: 'Please provide maximum investment amount.',
+      pattern: 'Only numbers are allowed.'
     },
     establishmentYear: {
       required: 'Establishment year is required.',
@@ -79,8 +84,8 @@ export class AppointDistributorComponent implements OnInit {
     categories: {
       required: 'Category is required.',
     },
-    totalDistributors: {
-      required: 'Please enter total number of distributors.',
+    totalEmployees: {
+      required: 'Please enter total number of employees.',
       pattern: 'Only numbers are allowed.'
     },
     annualSales: {
@@ -171,11 +176,12 @@ export class AppointDistributorComponent implements OnInit {
     this.appointDistributorForm = this._formBuilder.group({
       brandName: ['', [CustomValidators.startingWithEmptySpace()]],
       businessNatures: [[]],
-      investmentRequired: ['', [CustomValidators.startingWithEmptySpace()]],
+      minInvestmentAmount: ['', [Validators.pattern(/^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$/)]],
+      maxInvestmentAmount: ['', [Validators.pattern(/^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$/)]],
       establishmentYear: ['', [Validators.minLength(4), Validators.maxLength(4), Validators.min(1900), Validators.max(2050)]],
       spaceRequired: ['', [CustomValidators.startingWithEmptySpace()]],
       categories: [[]],
-      totalDistributors: ['', [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+      totalEmployees: ['', [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       annualSales: ['', [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       productsKeywords: ['', [CustomValidators.startingWithEmptySpace()]],
       //distributorshipType: ['', Validators.required],
@@ -218,11 +224,12 @@ export class AppointDistributorComponent implements OnInit {
     brand.name = this.appointDistributorForm.value.brandName;
     brand.description = this.appointDistributorForm.value.description;
     brand.businessNatures = this.appointDistributorForm.value.businessNatures != "" ? this.appointDistributorForm.value.businessNatures.map(({ id }) => id) : null;
-    brand.investmentRequired = this.appointDistributorForm.value.investmentRequired;
+    brand.minInvestmentAmount = this.appointDistributorForm.value.minInvestmentAmount;
+    brand.maxInvestmentAmount = this.appointDistributorForm.value.maxInvestmentAmount;
     brand.establishmentYear = this.appointDistributorForm.value.establishmentYear;
     brand.spaceRequired = this.appointDistributorForm.value.spaceRequired;
     brand.categories = [parseInt(this.appointDistributorForm.value.categories)];
-    brand.totalDistributors = this.appointDistributorForm.value.totalDistributors;
+    brand.totalEmployees = this.appointDistributorForm.value.totalEmployees;
     brand.annualSales = this.appointDistributorForm.value.annualSales;
     brand.productsKeywords = this.appointDistributorForm.value.productsKeywords;
     //brand.distributorshipType = this.appointDistributorForm.value.distributorshipType;
@@ -325,14 +332,14 @@ export class AppointDistributorComponent implements OnInit {
           reader.readAsDataURL(e.target.files[i]);
           reader.onload = (event: any) => {
             this.productsImages.push(event.target.result);
-  
+
             this.appointDistributorForm.patchValue({
               productsImages: this.productsImages
             });
           }
         }
       }
-      
+
     }
   }
 

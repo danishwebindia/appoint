@@ -4,5 +4,6 @@ export class BrandFilter {
     searchKeyword: string;
     stateId: number;
     cityId: number;
+    investmentAmount: number;
     requestType: RequestType;
 }

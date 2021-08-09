@@ -1,210 +1,227 @@
 <form class="form-horizontal" [formGroup]="appointDistributorForm" (ngSubmit)="appointDistributorSubmit()">
-    <div class="card">
-        <div class="card-header bg-primary text-white">
-            Appoint Distributor
-        </div>
-        <div class="card-body">
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="brandName">Brand Name:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="brandName" formControlName="brandName"
-                        placeholder="Enter brand name" name="brandName" (blur)="logValidationErrors()"
-                        [ngClass]="{'is-invalid': formErrors.brandName}">
-                    <span class="invalid-feedback" *ngIf="formErrors.brandName">
-                        {{formErrors.brandName}}
-                    </span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="businessNatures">Business Nature:</label>
-                <div class="col-sm-10">
-                    <ng-multiselect-dropdown formControlName="businessNatures" [placeholder]="'Business Nature'"
-                        [settings]="businessNatureMultiSelectSettings" [data]="businessNatures">
-                    </ng-multiselect-dropdown>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="investmentRequired">Investment Required:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="investmentRequired" formControlName="investmentRequired"
-                        placeholder="Enter investment required" name="investmentRequired" (blur)="logValidationErrors()"
-                        [ngClass]="{'is-invalid': formErrors.investmentRequired}">
-                    <span class="invalid-feedback" *ngIf="formErrors.investmentRequired">
-                        {{formErrors.investmentRequired}}
-                    </span>
-                </div>
-            </div>
-            <div class="form-group  row">
-                <label class="control-label col-sm-2" for="establishmentYear">Establishment Year:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="establishmentYear" formControlName="establishmentYear"
-                        placeholder="Enter establishment year" name="establishmentYear" (blur)="logValidationErrors()"
-                        [ngClass]="{'is-invalid': formErrors.establishmentYear}">
-                    <span class="invalid-feedback" *ngIf="formErrors.establishmentYear">
-                        {{formErrors.establishmentYear}}
-                    </span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="spaceRequired">Space Required (Sq Ft):</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="spaceRequired" formControlName="spaceRequired"
-                        placeholder="Enter space required (Sq Ft)" name="spaceRequired" (blur)="logValidationErrors()"
-                        [ngClass]="{'is-invalid': formErrors.spaceRequired}">
-                    <span class="invalid-feedback" *ngIf="formErrors.spaceRequired">
-                        {{formErrors.spaceRequired}}
-                    </span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="categories">Business Categories:</label>
-                <div class="col-sm-10">
-                    <!-- <ng-multiselect-dropdown formControlName="categories"
-                        [placeholder]="'Select one or more categories'" [settings]="categoriesSettings"
-                        [data]="categories" [ngClass]="{'is-invalid': formErrors.categories}" (onDropDownClose)="logValidationErrors()" >
-                    </ng-multiselect-dropdown>
-                    <span class="invalid-feedback" style="display: block;">
-                        {{formErrors.categories}}
-                    </span> -->
-                    <select class="form-control" id="categories" formControlName="categories"
-                        [ngClass]="{'is-invalid': formErrors.categories}" (blur)="logValidationErrors()">
-                        <option value="" disabled>Select</option>
-                        <option *ngFor="let category of categories" value={{category.id}}>
-                            {{category.name}}
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="totalDistributors">Number of Distributors:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="totalDistributors" formControlName="totalDistributors"
-                        placeholder="Enter number of distributors" name="totalDistributors"
-                        (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.totalDistributors}">
-                    <span class="invalid-feedback" *ngIf="formErrors.totalDistributors">
-                        {{formErrors.totalDistributors}}
-                    </span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="annualSales">Annual Sales:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="annualSales" formControlName="annualSales"
-                        placeholder="Enter annual sales figure" name="annualSales" (blur)="logValidationErrors()"
-                        [ngClass]="{'is-invalid': formErrors.annualSales}">
-                    <span class="invalid-feedback" *ngIf="formErrors.annualSales">
-                        {{formErrors.annualSales}}
-                    </span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="productsKeywords">Products Keywords:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="productsKeywords" formControlName="productsKeywords"
-                        placeholder="Enter products' keywords in comma seperated format" name="productsKeywords"
-                        (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.productsKeywords}">
-                    <span class="invalid-feedback" *ngIf="formErrors.productsKeywords">
-                        {{formErrors.productsKeywords}}
-                    </span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="distributorshipType">Distributorship Type:</label>
-                <div class="col-sm-2">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="countrywise" value="1" formControlName="countrywise" name="countrywise">
-                            Country-wise
-                    </label>
-                </div>
-                <div class="col-sm-2">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="regionwise" value="2" formControlName="regionwise" 
-                        name="regionwise" (change)='onRegionChecked($event)'>
-                            Region-wise
-                    </label>
-                </div>
-                <div class="col-sm-3">
-                    <ng-multiselect-dropdown formControlName="regions" [placeholder]="'Regions'"
-                        [settings]="locationMultiSelectSettings" [data]="regions" [(ngModel)]="selectedRegions">
-                    </ng-multiselect-dropdown>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="statewise" value="3" formControlName="statewise" 
-                        name="statewise" (change)='onStateChecked($event)'>
-                            State-wise
-                    </label>
-                </div>
-                <div class="col-sm-3">
-                    <ng-multiselect-dropdown formControlName="states" [placeholder]="'States'"
-                        [settings]="locationMultiSelectSettings" [data]="states" [(ngModel)]="selectedStates">
-                    </ng-multiselect-dropdown>
-                </div>
-                <div class="col-sm-2">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="citywise" value="4" formControlName="citywise" 
-                        name="citywise" (change)='onCityChecked($event)'>
-                            City-wise
-                    </label>
-                </div>
-                <div class="col-sm-3">
-                    <ng-multiselect-dropdown formControlName="cities" [placeholder]="'Cities'"
-                        [settings]="locationMultiSelectSettings" [data]="cities" [(ngModel)]="selectedCities">
-                    </ng-multiselect-dropdown>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="brandLogo">Company Logo:</label>
-                <div class="col-sm-6">
-                    <input type="file" class="form-control" id="brandLogo" formControlName="brandLogo" name="brandLogo" placeholder="Select company logo" (change)='onLogoSelected($event)'>
-                </div>
-                <div class="col-sm-4">
-                    <img [src]="brandLogoUrl" height="50">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-2" for="productsImages">Products Images:</label>
-                <div class="col-sm-10">
-                    <input type="file" multiple class="form-control" id="productsImages" name="productsImages" placeholder="Select products images" (change)='onProductsImagesSelected($event)'>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10 preview-images">
-                    <table class="table table-striped">
-                        <tr>
-                            <td *ngFor='let url of productsImages'>
-                                <img [src]="url" height="80" width="80">
-                                <i class="fa fa-trash fa-lg image-delete" aria-hidden="true" title="Delete" 
-                                [value]="url" (click)='onDeleteProductImage($event)'></i>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-12">
-                    <textarea class="form-control" id="description" rows="3" formControlName="description"
-                        placeholder="Comments" name="description"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <button mat-button matStepperPrevious class="btn btn-primary"
-                        style="margin-right: 20px;">Previous</button>
-                    <input type="submit" class="btn btn-primary" [disabled]="appointDistributorForm.invalid" value="Submit"
-                        style="margin-right: 20px;">
-                    <!-- <input type="button" class="btn btn-secondary pl-2" (mousedown)="cancelRequest()" value="Cancel"> -->
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="card">
+      <div class="card-header bg-primary text-white">
+          Appoint Distributor
+      </div>
+      <div class="card-body">
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="brandName">Brand Name:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="brandName" formControlName="brandName"
+                      placeholder="Enter brand name" name="brandName" (blur)="logValidationErrors()"
+                      [ngClass]="{'is-invalid': formErrors.brandName}">
+                  <span class="invalid-feedback" *ngIf="formErrors.brandName">
+                      {{formErrors.brandName}}
+                  </span>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="businessNatures">Business Nature:</label>
+              <div class="col-sm-10">
+                  <ng-multiselect-dropdown formControlName="businessNatures" [placeholder]="'Business Nature'"
+                      [settings]="businessNatureMultiSelectSettings" [data]="businessNatures">
+                  </ng-multiselect-dropdown>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2">Investment Required:</label>
+              <div class="col-sm-4">
+              <input type="text" class="form-control" id="minInvestmentAmount" formControlName="minInvestmentAmount"
+                      placeholder="Enter min investment amount in lacs" name="minInvestmentAmount" (blur)="logValidationErrors()"
+                      [ngClass]="{'is-invalid': formErrors.minInvestmentAmount}" maxlength="6">
+                  <span class="invalid-feedback" *ngIf="formErrors.minInvestmentAmount">
+                      {{formErrors.minInvestmentAmount}}
+                  </span>
+              </div>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-4">
+                  <input type="text" class="form-control" id="maxInvestmentAmount" formControlName="maxInvestmentAmount"
+                      placeholder="Enter max investment amount in lacs" name="maxInvestmentAmount" (blur)="logValidationErrors()"
+                      [ngClass]="{'is-invalid': formErrors.maxInvestmentAmount}" maxlength="6">
+                  <span class="invalid-feedback" *ngIf="formErrors.maxInvestmentAmount">
+                      {{formErrors.maxInvestmentAmount}}
+                  </span>
+              </div>
+              <div class="col-sm-10">
+                  <!-- <input type="text" class="form-control" id="investmentRequired" formControlName="investmentRequired"
+                      placeholder="Enter investment required" name="investmentRequired" (blur)="logValidationErrors()"
+                      [ngClass]="{'is-invalid': formErrors.investmentRequired}">
+                  <span class="invalid-feedback" *ngIf="formErrors.investmentRequired">
+                      {{formErrors.investmentRequired}}
+                  </span> -->
+              </div>
+          </div>
+          <div class="form-group  row">
+              <label class="control-label col-sm-2" for="establishmentYear">Establishment Year:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="establishmentYear" formControlName="establishmentYear"
+                      placeholder="Enter establishment year" name="establishmentYear" (blur)="logValidationErrors()"
+                      [ngClass]="{'is-invalid': formErrors.establishmentYear}">
+                  <span class="invalid-feedback" *ngIf="formErrors.establishmentYear">
+                      {{formErrors.establishmentYear}}
+                  </span>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="spaceRequired">Space Required (Sq Ft):</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="spaceRequired" formControlName="spaceRequired"
+                      placeholder="Enter space required (Sq Ft)" name="spaceRequired" (blur)="logValidationErrors()"
+                      [ngClass]="{'is-invalid': formErrors.spaceRequired}">
+                  <span class="invalid-feedback" *ngIf="formErrors.spaceRequired">
+                      {{formErrors.spaceRequired}}
+                  </span>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="categories">Business Categories:</label>
+              <div class="col-sm-10">
+                  <!-- <ng-multiselect-dropdown formControlName="categories"
+                      [placeholder]="'Select one or more categories'" [settings]="categoriesSettings"
+                      [data]="categories" [ngClass]="{'is-invalid': formErrors.categories}" (onDropDownClose)="logValidationErrors()" >
+                  </ng-multiselect-dropdown>
+                  <span class="invalid-feedback" style="display: block;">
+                      {{formErrors.categories}}
+                  </span> -->
+                  <select class="form-control" id="categories" formControlName="categories"
+                      [ngClass]="{'is-invalid': formErrors.categories}" (blur)="logValidationErrors()">
+                      <option value="" disabled>Select</option>
+                      <option *ngFor="let category of categories" value={{category.id}}>
+                          {{category.name}}
+                      </option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="totalEmployees">Number of Employees:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="totalEmployees" formControlName="totalEmployees"
+                      placeholder="Enter number of employees" name="totalEmployees"
+                      (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.totalEmployees}">
+                  <span class="invalid-feedback" *ngIf="formErrors.totalEmployees">
+                      {{formErrors.totalEmployees}}
+                  </span>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="annualSales">Annual Sales:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="annualSales" formControlName="annualSales"
+                      placeholder="Enter annual sales figure" name="annualSales" (blur)="logValidationErrors()"
+                      [ngClass]="{'is-invalid': formErrors.annualSales}">
+                  <span class="invalid-feedback" *ngIf="formErrors.annualSales">
+                      {{formErrors.annualSales}}
+                  </span>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="productsKeywords">Products Keywords:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="productsKeywords" formControlName="productsKeywords"
+                      placeholder="Enter products' keywords in comma seperated format" name="productsKeywords"
+                      (blur)="logValidationErrors()" [ngClass]="{'is-invalid': formErrors.productsKeywords}">
+                  <span class="invalid-feedback" *ngIf="formErrors.productsKeywords">
+                      {{formErrors.productsKeywords}}
+                  </span>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="distributorshipType">Distributorship Type:</label>
+              <div class="col-sm-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="countrywise" value="1" formControlName="countrywise" name="countrywise">
+                          Country-wise
+                  </label>
+              </div>
+              <div class="col-sm-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="regionwise" value="2" formControlName="regionwise"
+                      name="regionwise" (change)='onRegionChecked($event)'>
+                          Region-wise
+                  </label>
+              </div>
+              <div class="col-sm-3">
+                  <ng-multiselect-dropdown formControlName="regions" [placeholder]="'Regions'"
+                      [settings]="locationMultiSelectSettings" [data]="regions" [(ngModel)]="selectedRegions">
+                  </ng-multiselect-dropdown>
+              </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="statewise" value="3" formControlName="statewise"
+                      name="statewise" (change)='onStateChecked($event)'>
+                          State-wise
+                  </label>
+              </div>
+              <div class="col-sm-3">
+                  <ng-multiselect-dropdown formControlName="states" [placeholder]="'States'"
+                      [settings]="locationMultiSelectSettings" [data]="states" [(ngModel)]="selectedStates">
+                  </ng-multiselect-dropdown>
+              </div>
+              <div class="col-sm-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="citywise" value="4" formControlName="citywise"
+                      name="citywise" (change)='onCityChecked($event)'>
+                          City-wise
+                  </label>
+              </div>
+              <div class="col-sm-3">
+                  <ng-multiselect-dropdown formControlName="cities" [placeholder]="'Cities'"
+                      [settings]="locationMultiSelectSettings" [data]="cities" [(ngModel)]="selectedCities">
+                  </ng-multiselect-dropdown>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="brandLogo">Company Logo:</label>
+              <div class="col-sm-6">
+                  <input type="file" class="form-control" id="brandLogo" formControlName="brandLogo" name="brandLogo" placeholder="Select company logo" (change)='onLogoSelected($event)'>
+              </div>
+              <div class="col-sm-4">
+                  <img [src]="brandLogoUrl" height="50">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-sm-2" for="productsImages">Products Images:</label>
+              <div class="col-sm-10">
+                  <input type="file" multiple class="form-control" id="productsImages" name="productsImages" placeholder="Select products images" (change)='onProductsImagesSelected($event)'>
+              </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10 preview-images">
+                  <table class="table table-striped">
+                      <tr>
+                          <td *ngFor='let url of productsImages'>
+                              <img [src]="url" height="80" width="80">
+                              <i class="fa fa-trash fa-lg image-delete" aria-hidden="true" title="Delete"
+                              [value]="url" (click)='onDeleteProductImage($event)'></i>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-sm-12">
+                  <textarea class="form-control" id="description" rows="3" formControlName="description"
+                      placeholder="Comments" name="description"></textarea>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-12 text-center">
+                  <button mat-button matStepperPrevious class="btn btn-primary"
+                      style="margin-right: 20px;">Previous</button>
+                  <input type="submit" class="btn btn-primary" [disabled]="appointDistributorForm.invalid" value="Submit"
+                      style="margin-right: 20px;">
+                  <!-- <input type="button" class="btn btn-secondary pl-2" (mousedown)="cancelRequest()" value="Cancel"> -->
+              </div>
+          </div>
+      </div>
+  </div>
 
 </form>
 
 <!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-    <p style="color: white">Please Wait...</p>
+  <p style="color: white">Please Wait...</p>
 </ngx-spinner> -->

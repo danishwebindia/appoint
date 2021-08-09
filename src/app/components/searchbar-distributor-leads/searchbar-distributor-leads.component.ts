@@ -21,7 +21,7 @@ export class SearchbarDistributorLeadsComponent implements OnInit {
   public selectedCatagory = 0;
   public searchText = '';
   public selectedCatagoryName: string;
-
+  public investmentAmount: number;
   public resultDistributorLeads: any[];
 
   @Output() toggleSearchBar: EventEmitter<string> = new EventEmitter<string>();
@@ -75,8 +75,9 @@ export class SearchbarDistributorLeadsComponent implements OnInit {
 
 
   searchDistributorsLeads(): void {
-    const BrandFilterDto = { categoryId: +this.selectedCatagory, searchKeyword: this.searchText, stateId: +this.selectedState, cityId: +this.selectedcity, requestType: 1 };
+    const BrandFilterDto = { categoryId: +this.selectedCatagory, searchKeyword: this.searchText, stateId: +this.selectedState, cityId: +this.selectedcity, investmentAmount: +this.investmentAmount, requestType: 1 };
     this.distributorService.getDistributorsLeadsBySearchFilter(BrandFilterDto).subscribe((response) => {
+      // console.log(response);
       if (response) {
         this.resultDistributorLeads = response;
         if (this.catagories.find(x => x.id == this.selectedCatagory)) {
@@ -93,6 +94,16 @@ export class SearchbarDistributorLeadsComponent implements OnInit {
 
   onSearchClickClickEvent(): void {
     return this.toggleSearchBar.emit('distributorleadsresult');
+  }
+
+  numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    //46 is .
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46) {
+      return false;
+    }
+    return true;
+
   }
 
 }

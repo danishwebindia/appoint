@@ -56,7 +56,9 @@
           </li>
           <li>
             <img width="30px" height="30px" class="rounded-circle mr-2" src="../../../assets/images/all-cat.jpeg" />
-            <a href="#" style="color:darkblue !important;"> All Catagories</a>
+            <a style="color:darkblue !important;" (click)='toggleDisplayAll()' >
+              {{ displayAll ? 'Hide' : 'Show All'}} Categories
+            </a>
           </li>
         </ul>
       </div>
@@ -64,32 +66,20 @@
     <div class="col-md-9" id="banners">
       <ngb-carousel>
         <ng-template ngbSlide>
-          <img class="slider-img-responsive" src="../../../assets/images/banner/banner1.jpg"  (click)="openAllRealtedBrands(12)" alt="Lance">
+          <img class="slider-img-responsive" src="../../../assets/images/banner/banner1.jpg"  (click)="openAllRealtedBrands(160)" alt="NXT-DevPro_FoodAndBeverages">
         </ng-template>
         <ng-template ngbSlide>
-          <img class="slider-img-responsive" src="../../../assets/images/banner/banner2.jpg"  (click)="openAllRealtedBrands(0)" alt="Bangalore Metro">
-        </ng-template>
-        <!-- <ng-template ngbSlide>
-          <img width="100%" height="440px" src="../../../assets/images/banner3.jpg" alt="Channai Metro">
-        </ng-template> -->
-        <ng-template ngbSlide>
-          <img class="slider-img-responsive" src="../../../assets/images/banner/banner4.jpg"  (click)="openAllRealtedBrands(15)" alt="kanakm">
+          <img class="slider-img-responsive" src="../../../assets/images/banner/banner2.jpg"  (click)="openAllRealtedBrands(0)" alt="No Caption">
         </ng-template>
         <ng-template ngbSlide>
-          <img class="slider-img-responsive" src="../../../assets/images/banner/banner5.jpeg"  (click)="openAllRealtedBrands(4)" alt="Channai Metro">
+          <img class="slider-img-responsive" src="../../../assets/images/banner/banner3.jpg"  (click)="openAllRealtedBrands(168)" alt="ZOORIK_ApperelAndFaishion">
         </ng-template>
         <ng-template ngbSlide>
-          <img class="slider-img-responsive" src="../../../assets/images/banner/banner6.jpeg"  (click)="openAllRealtedBrands(0)" alt="Channai Metro">
+          <img class="slider-img-responsive" src="../../../assets/images/banner/banner5.jpeg"  (click)="openAllRealtedBrands(28)" alt="Channai Metro">
         </ng-template>
         <ng-template ngbSlide>
-          <img class="slider-img-responsive" src="../../../assets/images/banner/banner7.jpeg"  (click)="openAllRealtedBrands(2)" alt="Channai Metro">
+          <img class="slider-img-responsive" src="../../../assets/images/banner/banner8.jpg"  (click)="openAllRealtedBrands(0)" alt="No Caption">
         </ng-template>
-        <ng-template ngbSlide>
-          <img class="slider-img-responsive" src="../../../assets/images/banner/banner8.jpg"  (click)="openAllRealtedBrands(0)" alt="Channai Metro">
-        </ng-template>
-        <!-- <ng-template ngbSlide>
-          <img width="100%" height="440px" src="../../../assets/images/banner9.jpeg" alt="Channai Metro">
-        </ng-template> -->
       </ngb-carousel>
     </div>
   </div>

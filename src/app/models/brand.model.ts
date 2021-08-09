@@ -8,11 +8,12 @@ export class Brand {
     brandOwnerEmail: string;
     brandOwnerContactNumber: string;
     businessNatures: number[];
-    investmentRequired: string;
+    minInvestmentAmount: number;
+    maxInvestmentAmount: number;
     establishmentYear: number;
     spaceRequired: string;
     categories: number[];
-    totalDistributors: number;
+    totalEmployees: number;
     annualSales: number;
     productsKeywords: string;
     distributorshipTypes: number[];
